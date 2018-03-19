@@ -10,13 +10,11 @@ describe('User visits root', () => {
 
   describe('the user can navigate from root', () => {
     it('to create.html', () => {
-      const url = browser.getUrl();
-      const expectedUrl = "/create"
-
       browser.url('/');
+
       browser.click('a[href="create.html"]');
 
-      assert.equal(url, expectedUrl);
+      assert.include(browser.getText('body'), 'Create');
     });
   });
 });
